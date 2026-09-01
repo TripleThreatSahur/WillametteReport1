@@ -1,0 +1,38 @@
+
+name: Deploy Astro Subpath Site
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4 # Upgraded to v4 for modern Node stability
+
+      - name: Build and Upload Site Assets
+        uses: withastro/action@v6 # Upgraded to v6 for modern Node environments
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy static build to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+
+
+
+
