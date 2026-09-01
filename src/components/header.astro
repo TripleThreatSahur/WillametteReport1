@@ -1,16 +1,17 @@
 ---
+const BASE_URL = import.meta.env.BASE_URL;
 
 ---
 
 <header class="bg-black text-white py-5 px-3">
     <nav class="flex justify-between gap-2 md:max-w-8/10 m-auto">
         <ul>
-            <li><a href="/">WVR</a></li>
+            <li><a href=`${BASE_URL}`>WVR</a></li>
         </ul>
         <ul class="flex gap-2">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-        <li><a href="/ToS">Terms of Service</a></li>
+            <li><a href=`${BASE_URL}`>Home</a></li>
+            <li><a href=`${BASE_URL}/about`>About</a></li>
+        <li><a href=`${BASE_URL}/ToS`>Terms of Service</a></li>
         </ul>
     </nav>
 </header>
