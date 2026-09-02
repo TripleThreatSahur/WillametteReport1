@@ -1,9 +1,10 @@
 ---
 const year: number = new Date().getFullYear();
+const BASE_URL = import.meta.env.BASE_URL;
 ---
 
 <footer class="bg-black text-white flex flex-col py-5 px-3">
-    <span>&copy; Clark {year}, <a href="/ToS">Terms of Service</a></span>
+    <span>&copy; Clark {year}, <a href=`${BASE_URL}/ToS`>Terms of Service</a></span>
     <nav class="flex justify-between gap-2 md:max-w-8/10 m-auto">
  
     </nav>
